@@ -3,25 +3,24 @@
     [com.moclojer.adapters :as adapters]
     [com.moclojer.server :as server]))
 
-(fn foo
-  "returns the first element of an array"
-  [arr]
-  (println (nth arr 0))
-  )
-
-(defn router [some-shit] 
+(defn *router [] 
   (adapters/generate-routes
     [{:endpoint
       {:method "GET" 
        :path "/hello-world"
        :response {:status 200
                   :headers{:Content-Type "application.json"}
-                  :body {:id some-shit}}}}])
-  )
+                  :body {:id 123}}}}]))
+
+(defn start! 
+  "starting the server"
+  ([]
+    (server/start-server! *router)) 
+  ([config-path] 
+   (server/start-server-with-file-watcher! {:config-path config-path})))
 
 (defn -main
-  "main func"
+  "main function for this little project"
   [& args]
   (println (count args))
-  )
-
+  (start!))

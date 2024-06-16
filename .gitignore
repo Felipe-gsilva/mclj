@@ -3,3 +3,5 @@
 .lein-repl-history
 .nrepl-port
 /target/
+.cpcache/
+src/.cpcache/
