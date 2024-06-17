@@ -2,10 +2,26 @@
   method: GET
   path: /hello/:username
   response:
-  status: 200
-  headers:
-  Content-Type: application/json
-  body: >
-  {
-  "hello": "{{path-params.username}}!"
-  }
+    status: 200
+    headers:
+      Content-Type: application/json
+    body: >
+      {
+        "hello": "{{path-params.username}}"
+      }
+
+- endpoint:
+  method: POST
+  path: /fuck/
+  response:
+    status: 200
+    headers:
+      Content-Type: application/json
+    body: >
+      {
+        "username": "{{json-params.username}}"
+        "password": "{{json-params.password}}"
+        "auth": "{{headers.auth}}"
+      }
+      
+

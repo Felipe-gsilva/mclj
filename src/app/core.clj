@@ -3,7 +3,8 @@
     [com.moclojer.adapters :as adapters]
     [com.moclojer.server :as server]))
 
-(defn *router [] 
+(def *router  
+  "creating and adapter"
   (adapters/generate-routes
     [{:endpoint
       {:method "GET" 
@@ -23,4 +24,4 @@
   "main function for this little project"
   [& args]
   (println (count args))
-  (start!))
+  (start! "src/resources/moclojer.yml"))
