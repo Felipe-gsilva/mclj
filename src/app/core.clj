@@ -1,17 +1,26 @@
 (ns app.core
   (:require 
     [com.moclojer.adapters :as adapters]
-    [com.moclojer.server :as server]))
+    [com.moclojer.server :as server]
+    [app.task :as a]))
 
 (def *router  
-  "creating and adapter"
+  "creating an adapter"
   (adapters/generate-routes
     [{:endpoint
       {:method "GET" 
        :path "/hello-world"
        :response {:status 200
-                  :headers{:Content-Type "application.json"}
-                  :body {:id 123}}}}]))
+                  :headers{:Content-Type "application/json"}
+                  :body {:id 123}}}}
+     {:endpoint
+      {:method "POST" 
+       :path "/login" 
+       :response 
+       {:status 200 
+        :headers 
+        {:Content-Type "application/json" 
+         :body{:id 123}}}}}]))
 
 (defn start! 
   "starting the server"
@@ -24,4 +33,8 @@
   "main function for this little project"
   [& args]
   (println (count args))
-  (start! "src/resources/moclojer.yml"))
+  (let [x 0]
+    (a/list-tasks list)
+  )
+  (start! "resources/moclojer.yml"))
+

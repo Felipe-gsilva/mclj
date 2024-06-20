@@ -1,13 +1,12 @@
 # app
 
-A Clojure library designed to ... well, that part is up to you.
+A simple project made with clojure trying to understand the basics, while adding the mock service Moclojer into it;
 
 ## Usage
 
 FIXME
 
 ## License
-
 Copyright © 2024 FIXME
 
 This program and the accompanying materials are made available under the
