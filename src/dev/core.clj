@@ -1,8 +1,8 @@
-(ns app.core
+(ns dev.core 
   (:require 
     [com.moclojer.adapters :as adapters]
     [com.moclojer.server :as server]
-    [app.task :as a]))
+    [dev.task :as task]))
 
 (def *router  
   "creating an adapter"
@@ -33,8 +33,6 @@
   "main function for this little project"
   [& args]
   (println (count args))
-  (let [x 0]
-    (a/list-tasks list)
-  )
-  (start! "resources/moclojer.yml"))
+  (task/start!))
+  (start! "resources/moclojer.yml")
 
