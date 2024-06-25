@@ -12,15 +12,7 @@
        :path "/hello-world"
        :response {:status 200
                   :headers{:Content-Type "application/json"}
-                  :body {:id 123}}}}
-     {:endpoint
-      {:method "POST" 
-       :path "/login" 
-       :response 
-       {:status 200 
-        :headers 
-        {:Content-Type "application/json" 
-         :body{:id 123}}}}}]))
+                  :body {:id 123}}}}]))
 
 (defn start! 
   "starting the server"
