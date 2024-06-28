@@ -12,6 +12,7 @@
        :path "/list-tasks"
        :response {:status 200
                   :headers{:Content-Type "application/json"}
+                  :body (task/list-tasks )
                   }}}]))
 
 (defn start! 

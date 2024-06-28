@@ -9,17 +9,3 @@
       {
         "hello": "{{path-params.username}}"
       }
-
-- endpoint:
-  method: POST
-  path: //
-  response:
-    status: 200
-    headers:
-      Content-Type: application/json
-    body: >
-      {
-        "username": "{{json-params.username}}"
-        "password": "{{json-params.password}}"
-        "auth": "{{headers.auth}}"
-      }
