@@ -9,10 +9,10 @@
   (adapters/generate-routes
     [{:endpoint
       {:method "GET" 
-       :path "/hello-world"
+       :path "/list-tasks"
        :response {:status 200
                   :headers{:Content-Type "application/json"}
-                  :body {:id 123}}}}]))
+                  }}}]))
 
 (defn start! 
   "starting the server"

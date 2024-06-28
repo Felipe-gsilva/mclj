@@ -14,8 +14,8 @@
 (defn remove-task [id]
  (swap! tasklist (fn [tasks] (remove #(= (:id %) id) tasks))))
 
-(defn update-task [id]
-  (swap! tasklist (fn [tasks] (let [update (filter #(= (:id %) id))]))))
+(defn update-task [id desc stat]
+  (swap! tasklist (fn [tasks] (assoc (nth tasks (dec id)) :description desc :status stat))))
 
 (defn list-ops []
   (println "select what to do:")
@@ -51,7 +51,11 @@
       (= op 4) (do
                  (println "select the id to update") 
                  (let [id (Integer/parseInt (read-line))]
-                   (update-task id)))
+                   (println "type the new description")
+                   (let [desc (read-line)]
+                     (println "type the new status")
+                     (let [stat (read-line)]
+                       (update-task id desc stat)))))
       (= op 9) (reset! tasklist [])
       :else (println "not valid input")))
   (start!))
