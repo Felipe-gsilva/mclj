@@ -1,11 +1,63 @@
-- endpoint: 
+- endpoint:
   method: GET
-  path: /hello/:username
-  response:
+  path: /list-tasks
+  response: 
     status: 200
-    headers:
+    headers: 
       Content-Type: application/json
-    body: >
-      {
-        "hello": "{{path-params.username}}"
+    body: > 
+      { 
+        "id": "123"
       }
+    
+
+- endpoint:
+  method: POST
+  path: /create-tasks
+  response: 
+    status: 200
+    headers: 
+      Content-Type: application/json
+    body: > 
+      {
+        "desc": "{{json-params.desc}}" 
+        "stat": "{{json-params.stat}}" 
+      } 
+
+- endpoint:
+  method: DELETE
+  path: /delete-task
+  response: 
+    status: 200
+    headers: 
+      Content-Type: application/json
+    body: > 
+      {
+        "id": "{{json-params.id}}" 
+      } 
+
+- endpoint:
+  method: DELETE
+  path: /delete-all
+  response: 
+    status: 200
+    headers: 
+      Content-Type: application/json
+    body: > 
+      {
+      } 
+
+- endpoint:
+  method: PUT
+  path: /update-task
+  response: 
+    status: 200
+    headers: 
+      Content-Type: application/json
+    body: > 
+      {
+        "id": "{{json-params.id}}" 
+        "desc": "{{json-params.desc}}" 
+        "stat": "{{json-params.stat}}" 
+      } 
+
