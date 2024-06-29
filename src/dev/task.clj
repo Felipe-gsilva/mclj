@@ -17,7 +17,11 @@
 (defn update-task [id desc stat]
   (swap! tasklist (fn [tasks] (assoc (nth tasks (dec id)) :description desc :status stat))))
 
-(defn list-ops []
+(defn delete-all [] (reset! tasklist []))
+
+(defn list-ops 
+  "operations listed"
+  []
   (println "select what to do:")
   (println "1 - create task")
   (println "2 - list tasks")
@@ -27,7 +31,7 @@
   (println "0 - exit"))
 
 (defn start! 
-  "cli"
+  "project cli for local tests"
   []
   (list-ops) 
   (let [op (Integer/parseInt (read-line))]
@@ -56,11 +60,11 @@
                      (println "type the new status")
                      (let [stat (read-line)]
                        (update-task id desc stat)))))
-      (= op 9) (reset! tasklist [])
+      (= op 9) (delete-all)
       :else (println "not valid input")))
   (start!))
 
 (defn -main 
-  "our starting point" 
+  "starting point" 
   []
   (start!))

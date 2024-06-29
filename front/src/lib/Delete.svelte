@@ -1,14 +1,12 @@
 <script lang="ts">
   let result: String 
-  let desc: String 
-  let stat: String
+  let id: number
 
   async function postRequest () {
-    const res = await fetch('http://0.0.0.0:8000/create-task', {
-			method: 'POST',
+    const res = await fetch('http://0.0.0.0:8000/delete-task', {
+			method: 'DELETE',
       body: JSON.stringify({
-        desc,
-        stat
+        id 
       })
     })
 
@@ -17,8 +15,7 @@
   }
 </script>
 
-<input bind:value={desc} />
-<input bind:value={stat} />
+<input bind:value={id} />
 <button on:click={postRequest}>
   post the info
 </button>
