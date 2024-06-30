@@ -16,23 +16,18 @@
                  :path "/create-task" 
                  :response {:status 200 
                             :headers {:Content-Type "application/json"}
-                            :body {:task-created (task/create-task (body.desc) (body.stat))}}}} 
+                            :body {:task-created (task/create-task "desc-1-example" "stat-1-example")}}}} 
      {:endpoint {:method "DELETE" 
                  :path "/delete-task" 
                  :response {:status 200
                             :headers {:Content-Type "application/json"
-                                      :body {:id (task/remove-task (body.id))}}}}} ;need input
+                                      :body {:id (task/remove-task 1)}}}}}
      {:endpoint {:method "DELETE" 
                  :path "/delete-all" 
                  :response {:status 200
                             :headers {:Content-Type "application/json"
                                       :body {:tasks (task/delete-all)}}}}}
-     {:endpoint {:method "PUT" 
-                 :path "/update-task" 
-                 :response {:status 200 
-                            :headers {:Content-Type "application/json"}
-                            :body {:task-created (task/update-task (body.id) (body.desc) (body.stat))}}}} 
-     ]))
+         ]))
 
 (defn start! 
   "starting the server"

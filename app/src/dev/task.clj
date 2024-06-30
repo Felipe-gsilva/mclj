@@ -15,9 +15,9 @@
  (swap! tasklist (fn [tasks] (remove #(= (:id %) id) tasks))))
 
 (defn update-task [id desc stat]
-  (swap! tasklist (fn [tasks] (assoc (nth tasks (dec id)) :description desc :status stat))))
+  (swap! tasklist (fn [tasks] (assoc (nth tasks id) :description desc :status stat))))
 
-(defn delete-all [] (reset! tasklist []))
+(defn delete-all [] (reset! tasklist [{}]))
 
 (defn list-ops 
   "operations listed"
