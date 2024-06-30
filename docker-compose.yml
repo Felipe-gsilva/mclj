@@ -1,0 +1,10 @@
+services:
+  front:
+    build: front
+    ports:
+      - "5173:5173"
+
+  app:
+    build: app
+    ports:
+      - "8000:8000"

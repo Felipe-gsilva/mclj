@@ -5,7 +5,8 @@
     [dev.task :as task]))
 
 (def *router  
-  "creating an adapter example, even dough it exists on the .yml file"
+  "creating an adapter example, even dough  the .yml on resources has some endpoints tests
+"
   (adapters/generate-routes
     [{:endpoint
       {:method "GET" 
@@ -17,17 +18,22 @@
                  :path "/create-task" 
                  :response {:status 200 
                             :headers {:Content-Type "application/json"}
-                            :body {:task-created (task/create-task "carlos" "carlos")}}}} ; need input
+                            :body {:task-created (task/create-task (body.desc) (body.stat))}}}} 
      {:endpoint {:method "DELETE" 
                 :path "/delete-task" 
                 :response {:status 200
                            :headers {:Content-Type "application/json"
-                                     :body {:id (task/remove-task 1)}}}}} ;need input
+                                     :body {:id (task/remove-task (body.id))}}}}} ;need input
      {:endpoint {:method "DELETE" 
-                :path "/delete-all" 
-                :response {:status 200
-                           :headers {:Content-Type "application/json"
-                                     :body {:tasks (task/delete-all)}}}}}
+                 :path "/delete-all" 
+                 :response {:status 200
+                            :headers {:Content-Type "application/json"
+                                      :body {:tasks (task/delete-all)}}}}}
+     {:endpoint {:method "PUT" 
+                 :path "/update-task" 
+                 :response {:status 200 
+                            :headers {:Content-Type "application/json"}
+                            :body {:task-created (task/update-task (body.id) (body.desc) (body.stat))}}}} 
      ]))
 
 (defn start! 
@@ -39,6 +45,5 @@
 
 (defn -main
   "main function for this little project"
-  [& args]
-  (start! "resources/moclojer.yml")
-  (task/start!))
+  []
+  (start!)) ;

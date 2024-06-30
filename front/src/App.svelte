@@ -7,7 +7,6 @@
 </script>
 
 <main>
-
   <div class="show">
     <h1> TaskList and mocking test </h1>
     <List />
@@ -18,9 +17,5 @@
     <br>
     <DeleteAll />
   </div>
-
-
 </main>
 
-<style>
-</style>
