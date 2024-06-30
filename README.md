@@ -8,8 +8,35 @@ Firstly, install [java](https://www.oracle.com/java/technologies/javase/jdk22-ar
 Simply run, then:
 
 for the mock server
-> clj -M:dev -m dev.core
+> cd app/ && clj -M:dev -m dev.core
 
 for the frontend
 > cd front && npm install && npm run dev
+
+---
+
+You can also simply use docker or docker compose to run this project.
+
+Run:
+> docker compose build 
+
+and then
+
+> docker compose up
+
+--- 
+# Ports
+
+- localhost:5173 `frontend`
+- localhost:8000 `mock server`
+### endpoints
+> list-tasks
+
+> create-task
+
+> delete-all
+
+> delete-task
+
+> update-task
 

@@ -5,25 +5,23 @@
     [dev.task :as task]))
 
 (def *router  
-  "creating an adapter example, even dough  the .yml on resources has some endpoints tests
-"
+  "creating an adapter example, even dough  the .yml on resources has some endpoints tests"
   (adapters/generate-routes
-    [{:endpoint
-      {:method "GET" 
-       :path "/list-tasks"
-       :response {:status 200
-                  :headers {:Content-Type "application/json"}
-                  :body {:tasks (task/list-tasks)}}}}
+    [{:endpoint {:method "GET" 
+                 :path "/list-tasks"
+                 :response {:status 200
+                            :headers {:Content-Type "application/json"}
+                            :body {:tasks (task/list-tasks)}}}}
      {:endpoint {:method "POST" 
                  :path "/create-task" 
                  :response {:status 200 
                             :headers {:Content-Type "application/json"}
                             :body {:task-created (task/create-task (body.desc) (body.stat))}}}} 
      {:endpoint {:method "DELETE" 
-                :path "/delete-task" 
-                :response {:status 200
-                           :headers {:Content-Type "application/json"
-                                     :body {:id (task/remove-task (body.id))}}}}} ;need input
+                 :path "/delete-task" 
+                 :response {:status 200
+                            :headers {:Content-Type "application/json"
+                                      :body {:id (task/remove-task (body.id))}}}}} ;need input
      {:endpoint {:method "DELETE" 
                  :path "/delete-all" 
                  :response {:status 200
