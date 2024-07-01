@@ -2,7 +2,7 @@
   let result: String 
 
   async function postRequest () {
-    const res = await fetch('http://0.0.0.0:8000/delete-all', {
+    const res = await fetch('http://0.0.0.0:8000/tasks', {
 			method: 'DELETE'
     })
 

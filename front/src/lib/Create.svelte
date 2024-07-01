@@ -4,7 +4,7 @@
   let stat: String
 
   async function postRequest () {
-    const res = await fetch('http://0.0.0.0:8000/create-task', {
+    const res = await fetch('http://0.0.0.0:8000/tasks', {
 			method: 'POST',
       body: JSON.stringify({
         desc,

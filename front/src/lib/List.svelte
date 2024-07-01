@@ -2,7 +2,7 @@
   let result: String 
 
   async function getRequest () {
-    const res = await fetch('http://0.0.0.0:8000/list-tasks', {
+    const res = await fetch('http://0.0.0.0:8000/tasks', {
 			method: 'GET'
     })
 

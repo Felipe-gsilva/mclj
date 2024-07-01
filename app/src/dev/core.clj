@@ -8,22 +8,22 @@
   "creating an adapter example, even dough  the .yml on resources has some endpoints tests"
   (adapters/generate-routes
     [{:endpoint {:method "GET" 
-                 :path "/list-tasks"
+                 :path "/tasks"
                  :response {:status 200
                             :headers {:Content-Type "application/json"}
                             :body {:tasks (task/list-tasks)}}}}
      {:endpoint {:method "POST" 
-                 :path "/create-task" 
+                 :path "/task" 
                  :response {:status 200 
                             :headers {:Content-Type "application/json"}
                             :body {:task-created (task/create-task "desc-1-example" "stat-1-example")}}}} 
      {:endpoint {:method "DELETE" 
-                 :path "/delete-task" 
+                 :path "/task/" 
                  :response {:status 200
                             :headers {:Content-Type "application/json"
                                       :body {:id (task/remove-task 1)}}}}}
      {:endpoint {:method "DELETE" 
-                 :path "/delete-all" 
+                 :path "/tasks" 
                  :response {:status 200
                             :headers {:Content-Type "application/json"
                                       :body {:tasks (task/delete-all)}}}}}

@@ -3,11 +3,8 @@
   let id: number
 
   async function postRequest () {
-    const res = await fetch('http://0.0.0.0:8000/delete-task', {
-			method: 'DELETE',
-      body: JSON.stringify({
-        id 
-      })
+    const res = await fetch('http://0.0.0.0:8000/task/'+{id}, {
+			method: 'DELETE'
     })
 
     const json = await res.json()
