@@ -47,13 +47,13 @@ The ports available are these two
 ### endpoints
 These endpoints actually return the functions implemented on the clojure `ns dev.task` but statically. The main idea was to make the project dynamic, but I couldn't find a way to receive the json params out of the render template on yml and I could realize that Moclojer does not yet can handle dynamic returns by testing different inputs on the same runtime. I realized, also, that the renderer template, when altered on local drive, is immediatly rebuilt on the project as it goes, easing the experience and kind of making the under the hood process seemsly.
 
-> list-tasks
+> tasks | GET
 
-> create-task
+> task | POST
 
-> delete-all
+> tasks | DELETE
 
-> delete-task
+> task | DELETE
 
-> update-task
+> task | PUT
 
