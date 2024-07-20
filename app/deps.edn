@@ -6,16 +6,12 @@
                                           :git/sha "c4ca0f2cfcfbe47de6eb0c601b26106190e20793"}
            selmer/selmer                 {:mvn/version "1.12.61"}}
 
- :aliases {;; Run project
-           ;; clj -M:dev -m app.core 
-           :dev      {:extra-paths ["dev"]
+ :aliases {:dev      {:extra-paths ["dev"]
                       :extra-deps  {io.github.clojure/tools.build {:git/tag    "v0.10.4"
                                                                    :git/sha    "31388ff"}}}
 
            :nrepl {:extra-deps {cider/cider-nrepl {:mvn/version "0.30.0"}}
                    :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
-           ;; Lint the source
-           ;; clj -M:lint
            :lint      {:replace-deps {clj-kondo/clj-kondo {:mvn/version "2023.10.20"}}
                        :main-opts    ["-m" "clj-kondo.main" "--lint" "src"]}}}

@@ -14,7 +14,6 @@ This project has a simple CLI to show the output of the task manager, so you can
 - delete-all, simply reset! the atom tasklist value as an empty arr.
 - update-task, receives an Id, a desc and a status, access the map by using nth funciton and assoc the new values on the scope map returned. Then, the anonymous funcion return the altered map to the swap! function and alter the atom.
 
-
 ---
 # Running the project
 
